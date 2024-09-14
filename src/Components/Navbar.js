@@ -43,7 +43,7 @@ export default function Navbar(props) {
             </li>
           </ul>
 
-          {/* <div className="d-flex">
+          {<div className="d-flex">
             <div
               className="bg-primary roundede mx-2"
               onClick={() => {
@@ -86,7 +86,7 @@ export default function Navbar(props) {
               }}
               style={{ height: "30px", width: "30px", cursor: "pointer" }}
             ></div>
-          </div> */}
+          </div>}
 
              
         </div>
