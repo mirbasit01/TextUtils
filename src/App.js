@@ -22,16 +22,16 @@ function App() {
     }, 1500);
   };
 
-  // const removeBodyClasese = ()=>{
-  //   document.body.classList.remove('bg-light')
-  //   document.body.classList.remove('bg-dark')
-  //   document.body.classList.remove('bg-warning')
-  //   document.body.classList.remove('bg-danger')
-  //   document.body.classList.remove('bg-success')
-  // }
+  const removeBodyClasese = ()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-success')
+  }
 
   const toggleMode = (cls) => {
-    // removeBodyClasese() 
+    removeBodyClasese() 
     // console.log(cls)
     document.body.classList.add('bg-' +cls)
     if (mode === "light") {
