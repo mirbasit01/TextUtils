@@ -19,10 +19,21 @@ function App() {
     });
     setTimeout(() => {
       setAlert(null);
-    }, 3000);
+    }, 1500);
   };
 
-  const toggleMode = () => {
+  // const removeBodyClasese = ()=>{
+  //   document.body.classList.remove('bg-light')
+  //   document.body.classList.remove('bg-dark')
+  //   document.body.classList.remove('bg-warning')
+  //   document.body.classList.remove('bg-danger')
+  //   document.body.classList.remove('bg-success')
+  // }
+
+  const toggleMode = (cls) => {
+    // removeBodyClasese() 
+    // console.log(cls)
+    document.body.classList.add('bg-' +cls)
     if (mode === "light") {
       setmode("dark");
       document.body.style.backgroundColor = "#042743";
@@ -49,7 +60,7 @@ function App() {
         <Routes>
             {/* <Route path="/about" element={<About />}>
             </Route> */}
-             <Route path="/about" element={<About />} />
+             <Route path="/about" element={<About mode={mode} />} />
 
             {/* <Route path="/">
               {
@@ -66,7 +77,7 @@ function App() {
                 heading="Enter the text to analyze below"
                 mode={mode}
               />
-            } />
+            } />                          
           </Routes>
         </div>
       </Router>

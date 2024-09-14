@@ -33,6 +33,7 @@ export default function TextForm(props) {
     text.select();
     // text.setSelectionRang(0, 9999);
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRange();
     props.showAlert("Text Copy" , "success")
 
 
@@ -62,26 +63,26 @@ export default function TextForm(props) {
             className="form-control"
             value={text}
             onChange={handelOnChange}
-            style={{backgroundColor: props.mode=== 'dark'?'grey':'white ', color: props.mode=== 'dark'?'white':'black' }}
+            style={{backgroundColor: props.mode=== 'dark'?'#13466e':'white ', color: props.mode=== 'dark'?'white':'black' }}
             id="mybox"
             rows="8"
           ></textarea>
         </div>
-        <button className="btn- btn-primary mx-2" onClick={handleUpClick}>
+        <button disabled={text.length===0}  className="btn- btn-primary mx-2" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
         
-        <button className="btn- btn-primary mx-2 mt-2" onClick={handleLoClick}>
+        <button disabled={text.length===0} className="btn- btn-primary mx-2 mt-2" onClick={handleLoClick}>
           Convert to Lowercase
         </button>
-        <button className="btn- btn-primary mx-2 mt-2" onClick={handleclerClick}>
+        <button disabled={text.length===0} className="btn- btn-primary mx-2 mt-2" onClick={handleclerClick}>
            Cler text
         </button>
-        <button className="btn- btn-primary mx-2 mt-2" onClick={handleCopy}>
+        <button disabled={text.length===0} className="btn- btn-primary mx-2 mt-2" onClick={handleCopy}>
            Copy text
         </button>
   
-     <button className="btn- btn-primary mx-2 mt-2" onClick={handelextrspaces}>
+     <button disabled={text.length===0} className="btn- btn-primary mx-2 mt-2" onClick={handelextrspaces}>
      Remove Extra Space
   </button>
 
@@ -89,13 +90,13 @@ export default function TextForm(props) {
       <div className="container my-3" style={{color: props.mode=== 'dark'?'white':'black'  }}>
         <h2> Your Text summary </h2>
         <p>
-          {text.split(" ").length} woeds, and {text.length} characters
+          {text.split(/\s+ /) .length} words, and {text.length} characters
         </p>
         <p>
-          {0.008 * text.split(" ").length} Minutes read  
+          {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read  
         </p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
+        <p>{text.length>0?text:"Nothing to preview !"}</p>
 
       </div>
     </>
